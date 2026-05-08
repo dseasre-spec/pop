@@ -1,0 +1,98 @@
+{
+  "expo": {
+    "name": "روافد",
+    "slug": "roafed",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F4EF"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.roafed.app",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "UIRequiresFullScreen": true,
+        "UIViewControllerBasedStatusBarAppearance": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B5E3B"
+      },
+      "package": "com.roafed.app",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET"
+      ],
+      "softwareKeyboardLayoutMode": "pan"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-asset",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "fonts": [
+      {
+        "asset": "./assets/fonts/Tajawal-Regular.ttf",
+        "name": "Tajawal"
+      },
+      {
+        "asset": "./assets/fonts/Tajawal-Medium.ttf",
+        "name": "Tajawal"
+      },
+      {
+        "asset": "./assets/fonts/Tajawal-Bold.ttf",
+        "name": "Tajawal"
+      },
+      {
+        "asset": "./assets/fonts/Tajawal-ExtraBold.ttf",
+        "name": "Tajawal"
+      }
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/your-project-id",
+      "enabled": true,
+      "fallbackToCacheTimeout": 0
+    },
+    "locales": {
+      "ar": "./assets/locales/ar.json"
+    },
+    "primaryColor": "#1B5E3B",
+    "backgroundColor": "#F7F4EF",
+    "description": "روافد - منصتك الدراسية المتكاملة لتنظيم دروسك وواجباتك",
+    "githubUrl": "https://github.com/yourusername/roafed",
+    "privacy": "public",
+    "platforms": ["ios", "android", "web"],
+    "scheme": "roafed",
+    "owner": "your-expo-username"
+  }
+}

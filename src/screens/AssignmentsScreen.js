@@ -129,4 +129,120 @@ export default function AssignmentsScreen() {
                           </Text>
                         </View>
                         {assignment.grade && (
-                          <Text className="font-tajawal text-[10px] font-bold text-emerald-600
+                          <Text className="font-tajawal text-[10px] font-bold text-emerald-600">
+                            {assignment.grade}/100
+                          </Text>
+                        )}
+                      </View>
+                    </View>
+                  </View>
+                  {assignment.status === 'pending' && (
+                    <TouchableOpacity
+                      onPress={() => handleSubmit(assignment.id)}
+                      className="w-full mt-3 border border-border rounded-xl h-9 items-center justify-center flex-row gap-1.5"
+                    >
+                      <Icon name="check-circle" size={14} color="#7A8E86" />
+                      <Text className="font-tajawal text-xs font-medium text-muted-foreground">
+                        تم التسليم
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              );
+            })}
+          </View>
+        </View>
+      </ScrollView>
+
+      {/* Add Assignment Modal */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <Pressable 
+          className="flex-1 bg-black/80 justify-center items-center"
+          onPress={() => setModalVisible(false)}
+        >
+          <Pressable className="w-[90vw] bg-card rounded-3xl p-6" onPress={(e) => e.stopPropagation()}>
+            <Text className="font-tajawal text-lg font-bold text-foreground text-center mb-4">
+              إضافة واجب جديد
+            </Text>
+
+            {/* Subject */}
+            <View className="mb-4">
+              <Text className="font-tajawal text-sm font-medium text-foreground mb-1.5">
+                المادة
+              </Text>
+              <TextInput
+                className="h-10 rounded-xl border border-border px-3 font-tajawal text-sm text-foreground"
+                value={newAssignment.subject}
+                onChangeText={(text) => setNewAssignment({ ...newAssignment, subject: text })}
+                placeholder="اختر المادة"
+                placeholderTextColor="#7A8E86"
+                textAlign="right"
+              />
+            </View>
+
+            {/* Title */}
+            <View className="mb-4">
+              <Text className="font-tajawal text-sm font-medium text-foreground mb-1.5">
+                العنوان
+              </Text>
+              <TextInput
+                className="h-10 rounded-xl border border-border px-3 font-tajawal text-sm text-foreground"
+                value={newAssignment.title}
+                onChangeText={(text) => setNewAssignment({ ...newAssignment, title: text })}
+                placeholder="مثال: حل التمرين رقم 5"
+                placeholderTextColor="#7A8E86"
+                textAlign="right"
+              />
+            </View>
+
+            {/* Due Date */}
+            <View className="mb-4">
+              <Text className="font-tajawal text-sm font-medium text-foreground mb-1.5">
+                تاريخ التسليم
+              </Text>
+              <TextInput
+                className="h-10 rounded-xl border border-border px-3 font-tajawal text-sm text-foreground"
+                value={newAssignment.dueDate}
+                onChangeText={(text) => setNewAssignment({ ...newAssignment, dueDate: text })}
+                placeholder="YYYY-MM-DD"
+                placeholderTextColor="#7A8E86"
+                textAlign="right"
+              />
+            </View>
+
+            {/* Description */}
+            <View className="mb-6">
+              <Text className="font-tajawal text-sm font-medium text-foreground mb-1.5">
+                الوصف
+              </Text>
+              <TextInput
+                className="h-20 rounded-xl border border-border px-3 font-tajawal text-sm text-foreground"
+                value={newAssignment.description}
+                onChangeText={(text) => setNewAssignment({ ...newAssignment, description: text })}
+                placeholder="وصف الواجب..."
+                placeholderTextColor="#7A8E86"
+                textAlign="right"
+                multiline
+              />
+            </View>
+
+            {/* Submit Button */}
+            <TouchableOpacity
+              onPress={handleAddAssignment}
+              className="w-full bg-primary rounded-xl h-10 items-center justify-center"
+            >
+              <Text className="font-tajawal text-sm font-medium text-primary-foreground">
+                إضافة الواجب
+              </Text>
+            </TouchableOpacity>
+          </Pressable>
+        </Pressable>
+      </Modal>
+    </View>
+  );
+}
